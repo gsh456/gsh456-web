@@ -1,0 +1,53 @@
+:root {
+  font-size: 4px;
+}
+html {
+  color: var(--text-c);
+  background-color: #f3f4f6;
+  transition: background 0.8s;
+}
+html, body {
+  height: 100vh;
+}
+::-webkit-scrollbar {
+  width: 0px;
+  height: 9px;
+  background-color: var(--bg-c);
+}
+::-webkit-scrollbar-thumb {
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  background-color: #8888;
+  border-radius: 9999px;
+  &:hover {
+    background-color: #888b;
+  }
+}
+
+@media (max-width: 640px) {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+// draggable 托拖拽时 原元素样式
+.ghost {
+  visibility: hidden;
+}
+.dragging {
+  opacity: 1 !important;
+  .site__handle {
+    background-color: var(--site-hover-c);
+  }
+  .group__handle {
+    background-color: var(--site-hover-c);
+  }
+}
+
+.no_select {
+  -moz-user-select: none; /* 火狐 */
+  -webkit-user-select: none; /* 谷歌、Safari */
+  -ms-user-select: none; /* IE10+ */
+  user-select: none;
+  user-drag: none;
+}
