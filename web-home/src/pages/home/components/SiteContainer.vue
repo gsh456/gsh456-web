@@ -6,8 +6,11 @@ import SiteModal from './SiteModal.vue'
 
 <template>
   <div text="$text-c-1" z-8>
+    <!--分类-->
     <SiteNavBar />
+    <!--分组-->
     <SiteGroupList py-28 style="margin-left: auto; margin-right: auto;" />
+    <!--一个节点-->
     <SiteModal />
   </div>
 </template>

@@ -2,6 +2,8 @@ export interface Site {
   id: number
   name: string
   url: string
+  innerUrl?: string
+  memo?: string
   favicon?: string
   bgColor?: string
 }

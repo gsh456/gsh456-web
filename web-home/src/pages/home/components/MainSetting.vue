@@ -67,22 +67,6 @@ function importData() {
   inputElement.click()
 }
 
-function resetData() {
-  window.$dialog.warning({
-    title: '提示',
-    content: '数据重置后无法恢复，你确认要重置数据吗？',
-    positiveText: '确认',
-    negativeText: '取消',
-    onPositiveClick() {
-      loadData(deepClone(presetData))
-      window.$notification.success({ content: '已重置~', duration: 3000 })
-      // 重置分类索引
-      siteStore.setCateIndex(0)
-      // 重新渲染 site group list，否则自定义图标的背景色会丢失
-      renderStore.refreshSiteGroupList()
-    },
-  })
-}
 
 function loadData(data: any) {
   siteStore.setData(data.data)
@@ -113,9 +97,6 @@ function loadData(data: any) {
       />
     </div>
     <div mt-24 flex sm="justify-center" justify-between gap-x-12>
-      <n-button type="primary" secondary @click="resetData">
-        重置数据
-      </n-button>
       <n-button type="primary" @click="$router.back()">
         完成
       </n-button>

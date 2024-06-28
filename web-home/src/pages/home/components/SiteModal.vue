@@ -5,8 +5,8 @@ const inputStatus = ref<'error' | 'success'>('success')
 
 function handleCommit() {
   if (
-    !modalStore.inputValues.name
-    || (modalStore.target === 'site' && !modalStore.inputValues.url.trim())
+      !modalStore.inputValues.name
+      || (modalStore.target === 'site' && !modalStore.inputValues.url.trim())
   ) {
     inputStatus.value = 'error'
     setTimeout(() => inputStatus.value = 'success', 500)
@@ -18,35 +18,35 @@ function handleCommit() {
 
 <template>
   <n-modal
-    v-model:show="modalStore.modalVisible"
-    preset="dialog"
-    title="Dialog"
-    :show-icon="false"
-    :closable="false"
-    :on-after-leave="modalStore.clearInput"
+      v-model:show="modalStore.modalVisible"
+      preset="dialog"
+      title="Dialog"
+      :show-icon="false"
+      :closable="false"
+      :on-after-leave="modalStore.clearInput"
   >
     <template #header>
       <div>{{ modalStore.title }}</div>
     </template>
     <div flex flex-col gap-y-16>
       <n-input
-        v-model:value="modalStore.inputValues.name"
-        :status="modalStore.inputValues.name ? undefined : inputStatus "
-        placeholder="名称"
-        @keydown.enter="modalStore.handleCommit"
+          v-model:value="modalStore.inputValues.name"
+          :status="modalStore.inputValues.name ? undefined : inputStatus "
+          placeholder="名称"
+          @keydown.enter="modalStore.handleCommit"
       />
       <n-input
-        v-if="modalStore.target === 'site'"
-        v-model:value="modalStore.inputValues.url"
-        :status="modalStore.inputValues.url.trim() ? undefined : inputStatus "
-        placeholder="链接"
-        @keydown.enter="modalStore.handleCommit"
+          v-if="modalStore.target === 'site'"
+          v-model:value="modalStore.inputValues.url"
+          :status="modalStore.inputValues.url.trim() ? undefined : inputStatus "
+          placeholder="链接"
+          @keydown.enter="modalStore.handleCommit"
       />
       <n-input
-        v-if="modalStore.target === 'site'"
-        v-model:value="modalStore.inputValues.favicon"
-        placeholder="图标链接（选填）"
-        @keydown.enter="modalStore.handleCommit"
+          v-if="modalStore.target === 'site'"
+          v-model:value="modalStore.inputValues.favicon"
+          placeholder="图标链接（选填）"
+          @keydown.enter="modalStore.handleCommit"
       />
     </div>
     <template #action>

@@ -18,6 +18,7 @@ const settingStore = useSettingStore()
       <MainHeader />
       <MainClock v-if="!settingStore.isSetting" />
       <MainSearch v-if="!settingStore.isSetting" my-24 />
+      <!--导航数据-->
       <SiteContainer />
       <MainSetting />
       <TheFooter />
